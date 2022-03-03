@@ -117,6 +117,17 @@
         "hungry"
       ],
       "id": "11"
+    },
+    {
+      "name": "Jack",
+      "species": "Kangaroo",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "hungry",
+        "loving",
+        "goofy"
+      ],
+      "id": "12"
     }
   ]
 }
