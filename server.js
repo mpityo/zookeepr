@@ -69,7 +69,7 @@ function createNewAnimal(body, animalsArray) {
   fs.writeFileSync(
     // join two paths to a file
     // __dirname is the directory of the file we execute the code in
-    path.join(__dirnam, './data/animals.json'),
+    path.join(__dirname, './data/animals.json'),
     // stringify the animalsArray
     // 2nd argument edits existing values (null does not change anything)
     // 3rd argument is for whitespace
