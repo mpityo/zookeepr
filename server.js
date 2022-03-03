@@ -114,8 +114,20 @@ app.post('/api/animals', (req, res) => {
   }
 });
 
-// send user to index.html when page loads (HOMEPAGE)
+// when URL is just '/', send the user to index.html
 app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+// when URL is '/animals', send user to animals.html
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+// when URL is '/zookeepers', send user to zookeepers.html
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+// catch any other page that isn't listed here, send to index
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
