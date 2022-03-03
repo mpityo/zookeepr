@@ -31,6 +31,17 @@ const getAnimals = (formData = {}) => {
 
   console.log(queryUrl);
 
+  fetch(queryUrl)
+    .then(response => {
+      if (!response.ok) {
+        return alert('Error: ' + response.statusText);
+      }
+      return response.json();
+    })
+    .then(animalData => {
+      console.log(animalData);
+      printResults(animalData);
+    });
 };
 
 const handleGetAnimalsSubmit = event => {
@@ -55,7 +66,7 @@ const handleGetAnimalsSubmit = event => {
     personalityTraitArr.push(selectedTraits[i].value);
   }
 
-  const personalityTraits = personalityTraitArr.join(',');
+  const personalityTraits = personalityTraitArr.join('&');
 
   const animalObject = { diet, personalityTraits };
 
