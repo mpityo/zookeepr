@@ -10,6 +10,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
+// makes all files in the 'public' folder static resources for it to be used wherever
+app.use(express.static('public'));
 
 function validateAnimal(animal) {
   // check to make sure the values are filled and they're strings
@@ -110,6 +112,11 @@ app.post('/api/animals', (req, res) => {
     const animal = createNewAnimal(req.body, animals);
     res.json(animal); 
   }
+});
+
+// send user to index.html when page loads (HOMEPAGE)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 app.listen(PORT, () => {
